@@ -9,20 +9,21 @@
 {"id":20,"obj":"label","parentid":2,"x":10,"y":8,"align":1,"text":"\uf75c","text_font":"myfont.ttf-29","text_color":"#00ccff"}
 {"id":21,"obj":"label","parentid":2,"x":45,"y":3,"align":1,"text":"---%","text_font":"Montserrat-Medium.ttf-30","text_color":"#ffffff"}
 {"id":22,"obj":"label","parentid":2,"x":125,"y":11,"align":1,"text":"\uf748","text_font":"myfont.ttf-25","text_color":"#00ccff"}
-{"id":23,"obj":"label","parentid":2,"x":165,"y":3,"align":1,"text":"---%","text_font":"Montserrat-Medium.ttf-30","text_color":"#ffffff"}
+{"id":23,"obj":"label","parentid":2,"x":165,"y":3,"align":1,"text":"---°C","text_font":"Montserrat-Medium.ttf-30","text_color":"#ffffff"}
 {"id":24,"obj":"label","parentid":2,"x":270,"y":11,"align":1,"text":"\ue82a","text_font":"myfont.ttf-25","text_color":"#00ccff"}
 {"id":25,"obj":"label","parentid":2,"x":305,"y":3,"align":1,"text":"---ммР","text_font":"Montserrat-Medium.ttf-30","text_color":"#ffffff"}
 {"id":3,"obj":"flex","x":0,"y":150,"w":480,"h":80,"flex_flow":1,"flex_main_place":1,"flex_cross_place":2,"pad_row":0}
 {"id":30,"obj":"label","parentid":3,"w%":100,"align":1,"text":"воскресенье","text_font":"Montserrat-Medium.ttf-30"}
 {"id":31,"obj":"label","parentid":3,"w%":100,"align":1,"text":"04.05.2026","text_font":"Montserrat-Medium.ttf-30"}
 {"id":4,"obj":"flex","x":0,"y":235,"w":480,"h":40,"flex_flow":0,"flex_main_place":2,"flex_cross_place":2}
-{"id":40,"obj":"label","parentid":4,"w%":5,"align":1,"text":"\ue03f","text_font":"myfont.ttf-25","text_color":"#00ccff"}// \ue040
+{"id":40,"obj":"label","parentid":4,"w%":5,"align":1,"text":"\ue03f","text_font":"myfont.ttf-25","text_color":"#00ccff"}
+// \ue040
 {"id":41,"obj":"label","parentid":4,"w%":21,"align":1,"text":"---°C","text_font":"Montserrat-Medium.ttf-30"}
-{"id":5,"obj":"lv_clock","y":20,"w%":100,"text_font":"Montserrat-Medium.ttf-130","align":1}
+{"id":5,"obj":"label","y":20,"w%":100,"text_font":"Montserrat-Medium.ttf-130","align":1}
 {"id":6,"obj":"led","x":145,"y":280,"w":187,"h":187,"color":"#00ccff"}
 {"id":7,"obj":"obj","x":145,"y":280,"w":187,"h":187,"radius":95,"bg_color":"#000000","border_color":"#444444","border_width":3}
 {"id":8,"obj":"label","x":150,"y":335,"w":187,"h":80,"align":1,"text":"---°","text_font":"Montserrat-Medium.ttf-60"}
 {"id":9,"obj":"led","x":30,"y":340,"w":80,"h":80,"color":"#636363"}
-{"id":10,"obj":"switch","x":30,"y":340,"w":80,"h":80,"radius":40,"border_side":0,"bg_color":"#000000","bg_color20":"#000000","bg_color11":"#00ccff","text_font":"myfont.ttf-25","text":"\uf748","text_color":"#ffffff","text_color01":"#00ccff"}
+{"id":10,"obj":"switch","x":30,"y":340,"w":80,"h":80,"radius":40,"border_side":0,"bg_color":"#000000","bg_color20":"#000000","bg_color11":"#00ccff","text_font":"myfont.ttf-25","text":"\ue015","text_color":"#ffffff","text_color01":"#00ccff"}
 {"id":11,"obj":"led","x":370,"y":340,"w":80,"h":80,"color":"#636363"}
-{"id":12,"obj":"switch","x":370,"y":340,"w":80,"h":80,"radius":40,"border_side":0,"bg_color":"#000000","bg_color20":"#000000","bg_color11":"#00ccff","text_font":"myfont.ttf-25","text":"\uf748","text_color":"#ffffff","text_color01":"#00ccff"}
+{"id":12,"obj":"switch","x":370,"y":340,"w":80,"h":80,"radius":40,"border_side":0,"bg_color":"#000000","bg_color20":"#000000","bg_color11":"#00ccff","text_font":"myfont.ttf-25","text":"\uf734","text_color":"#ffffff","text_color01":"#00ccff"}
