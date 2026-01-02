@@ -1,0 +1,2 @@
+import haspmota
+haspmota.start()
