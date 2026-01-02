@@ -19,7 +19,7 @@
 {"id":40,"obj":"label","parentid":4,"w%":5,"align":1,"text":"\ue03f","text_font":"myfont.ttf-25","text_color":"#00ccff"}
 // \ue040
 {"id":41,"obj":"label","parentid":4,"w%":21,"align":1,"text":"---°C","text_font":"Montserrat-Medium.ttf-30"}
-{"id":5,"obj":"label","y":20,"w%":100,"text_font":"Montserrat-Medium.ttf-130","align":1}
+{"id":5,"obj":"label","y":20,"w%":100,"text":"--:--","text_font":"Montserrat-Medium.ttf-130","align":1}
 {"id":6,"obj":"led","x":145,"y":280,"w":187,"h":187,"color":"#00ccff"}
 {"id":7,"obj":"obj","x":145,"y":280,"w":187,"h":187,"radius":95,"bg_color":"#000000","border_color":"#444444","border_width":3}
 {"id":8,"obj":"label","x":150,"y":335,"w":187,"h":80,"align":1,"text":"---°","text_font":"Montserrat-Medium.ttf-60"}
