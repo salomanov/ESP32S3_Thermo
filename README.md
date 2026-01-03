@@ -1,2 +1,2 @@
 Backlog UrlFetch https://github.com/salomanov/ESP32S3_Thermo/raw/refs/heads/main/autoexec.be; UrlFetch https://github.com/salomanov/ESP32S3_Thermo/raw/refs/heads/main/pages.jsonl;  UrlFetch https://github.com/salomanov/ESP32S3_Thermo/raw/refs/heads/main/dat.be;  UrlFetch https://github.com/salomanov/ESP32S3_Thermo/raw/refs/heads/main/pages.jsonl; Restart 1
-haspmota.parse('{"id":5,"obj":"label","y":20,"w%":100,"text_font":"Montserrat-Medium.ttf-130","align":1}')
+haspmota.parse('{"id":5,"obj":"label","y":20,"w%":100,"text_font":"Montserrat-Medium.ttf-130","align":1,"hidden":true}')
