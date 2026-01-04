@@ -1,6 +1,6 @@
 {"page":0,"comment":"---------- Upper stat line ----------"}
 
-{"id":0,"antiburn_time":60,"dimming_time":1,"dimming_min":40,"dimming_duration":9999}
+{"id":0,"dimming_time":1,"dimming_min":40,"dimming_duration":9999}
 {"id":1,"text_color":"#4596ff","bg_color":"#000000"}
 //{"id":2,"obj":"lv_wifi_arcs","x":440,"y":5,"w":40,"h":20,"radius":0,"border_side":0,"line_color":"#FFFFFF"}
 {"page":1,"comment":"---------- Page 1 Obj ----------"}
@@ -39,6 +39,5 @@
 {"id":29,"obj":"label","parentid":28,"w":25,"align":1,"text":"\uf00d","text_font":"weathericons.ttf-25","text_color":"#00ccff"}
 {"id":32,"obj":"label","parentid":28,"w":30,"align":0,"text":"-00.0°","text_font":"Montserrat-Medium.ttf-25"}
 {"id":33,"obj":"label","parentid":28,"w%":21,"align":0,"text":"-11.5°C","text_font":"Montserrat-Medium.ttf-10"}
-{"id":33,"obj":"label","x":10,"y":8,"align":1,"text":"\uf00d","text_font":"weathericons.ttf-25","text_color":"#00ccff"}
 {"id":34,"obj":"label","x":18,"y":180,"w":100,"h":80,"align":1,"text":"Ледяная морось: сильная","text_font":"Montserrat-Medium.ttf-14","text_color":"#00ccff"}
 

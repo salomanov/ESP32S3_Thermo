@@ -49,7 +49,7 @@ def  get_date()
     var min =str(tm( time_map["min"]))
     var weekdays = ["ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"]
     p1b5.text = hour + ":" + min
-    p1b3.text = weekdays[weekday] +day + "." + month + "." + year
+    p1b3.text = weekdays[weekday] + " " + day + "." + month + "." + year
      
 end
    
