@@ -47,11 +47,10 @@ def  get_date()
     var weekday = time_map["weekday"]
     var hour = str(tm( time_map["hour"]))
     var min =str(tm( time_map["min"]))
-    var weekdays = ["воскресенье", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота"]
+    var weekdays = ["ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"]
     p1b5.text = hour + ":" + min
-    p1b30.text = weekdays[weekday]
-    p1b31.text = day + "." + month + "." + year
-   
+    p1b3.text = weekdays[weekday] +day + "." + month + "." + year
+     
 end
    
 
@@ -142,13 +141,7 @@ tasmota.add_rule("hasp#p1b18#event=up", plus_state,  "plus_state")
 tasmota.add_rule("System#Boot", get_temp, "get_temp")
 
 
-def power2_state22()
 
-       p1b13.hidden = true
-
-
-end
-tasmota.add_rule("hasp#p1b0", power2_state22,  "power2_state222")
 
 def open_state()
     p1b13.hidden = false
