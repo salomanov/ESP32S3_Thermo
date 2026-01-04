@@ -1,0 +1,83 @@
+{"page":0,"comment":"---------- Upper stat line ----------"}
+
+{"id":0,"dimming_time":1,"dimming_min":40,"dimming_duration":9999}
+{"page":1,"comment":"---------- Page 1 Obj ----------"}
+{"id":0, "text_color":"#FFFFFF","bg_color":"#000000","text_font":"Montserrat-Medium.ttf-30"}
+{"id":1,"obj":"flex","x":0,"y":0,"w":480,"h":40,"flex_flow":0,"flex_main_place":2,"flex_cross_place":2}
+{"id":2,"obj":"label","parentid":1,"align":2,"text":"\uf75c","text_font":"myfont.ttf-29","text_color":"#00ccff"}
+{"id":3,"obj":"label","parentid":1,"align":0,"text":"---%"}
+{"id":4,"obj":"label","parentid":1,"align":2,"text":"\uf748","text_font":"myfont.ttf-29","text_color":"#00ccff"}
+{"id":5,"obj":"label","parentid":1,"align":0,"text":"---°C"}
+{"id":6,"obj":"label","parentid":1,"align":2,"text":"\ue82a","text_font":"myfont.ttf-29","text_color":"#00ccff"}
+{"id":7,"obj":"label","parentid":1,"align":0,"text":"---ммР"}
+{"id":8,"obj":"label","y":15,"w%":100,"text":"--:--","text_font":"Montserrat-Medium.ttf-130","align":1}
+{"id":9,"obj":"label","x":0,"y":150,"w%":100,"align":1,"text":""}
+{"id":10,"obj":"flex","x":0,"y":190,"w%":100,"h":50,"flex_flow":0,"flex_main_place":2,"flex_cross_place":2,"text_font":"Montserrat-Medium.ttf-25"}
+{"id":11,"obj":"label","parentid":10,"align":2,"text":"","text_font":"weathericons.ttf-30","text_color":"#00ccff"}
+{"id":12,"obj":"label","parentid":10,"align":0,"text":""}
+{"id":13,"obj":"label","parentid":10,"align":2,"text":"","text_font":"weathericons.ttf-30","text_color":"#00ccff"}
+{"id":14,"obj":"label","parentid":10,"align":0,"text":""}
+{"id":15,"obj":"label","y":230,"w%":100,"text":"","text_font":"Montserrat-Medium.ttf-16","align":1}
+{"id":16,"obj":"led","x":146,"y":270,"w":188,"h":188,"color":"#636363"}
+{"id":17,"obj":"led","x":30,"y":324,"w":80,"h":80,"color":"#636363"}
+{"id":18,"obj":"led","x":370,"y":324,"w":80,"h":80,"color":"#636363"}
+{"id":19,"obj":"obj","x":150,"y":274,"w":180,"h":180,"radius":95,"bg_color":"#000000","border_width":0}
+{"id":20,"obj":"switch","x":30,"y":324,"w":80,"h":80,"radius":40,"border_side":0,"bg_color":"#000000","bg_color20":"#000000","bg_color11":"#00ccff","text_font":"myfont.ttf-40","text":"\uf011","text_color01":"#00ccff"}
+{"id":21,"obj":"switch","x":370,"y":324,"w":80,"h":80,"radius":40,"border_side":0,"bg_color":"#000000","bg_color20":"#000000","bg_color11":"#00ccff","text_font":"myfont.ttf-48","text":"\uf863","text_color01":"#00ccff"}
+{"id":22,"obj":"label","x":220,"y":295,"w":40,"align":1,"text":"","text_font":"myfont.ttf-29","text_color":"#00ccff"}
+{"id":23,"obj":"label","x":150,"y":330,"w":187,"h":80,"align":1,"text":"","text_font":"Montserrat-Medium.ttf-60"}
+{"id":24,"obj":"label","x":200,"y":400,"w":90,"align":1,"text":""}
+{"id":25,"obj":"btn","parentid":1,"w":30,"h":30,"align":1,"text_color":"#00ccff","text":"\uf0c9","text_font":"myfont.ttf-35","bg_color":"#000000"}
+
+{"page":2,"comment":"---------- Page 1 Obj ----------"}
+{"id":0, "text_color":"#FFFFFF","bg_color":"#000000","text_font":"Montserrat-Medium.ttf-30"}
+{"id":1,"obj":"btn","x":370,"y":370,"w":80,"h":80,"text_color":"#ff0000","radius":40,"text":"\ue59e","text_font":"myfont.ttf-48","bg_color":"#000000"}
+
+
+
+
+
+{"id":15,"obj":"flex","x":0,"y":250,"w%":100,"h":40,"flex_flow":0,"flex_main_place":2,"flex_cross_place":2,"text_font":"Montserrat-Medium.ttf-20"}
+{"id":16,"obj":"label","parentid":15,"align":2,"text":"ПРОГНОЗ:"}
+{"id":17,"obj":"label","parentid":15,"align":0,"text":"\uf00d","text_font":"weathericons.ttf-25","text_color":"#00ccff"}
+{"id":18,"obj":"label","parentid":15,"align":0,"text":"-00.0°/-00.0°"}
+
+
+
+{"id":27,"obj":"label","x":0,"y":180,"w%":100, "align":1,"text":"На улице * -00.0°","text_font":"Montserrat-Medium.ttf-20","text_color":"#00ccff"}
+
+{"id":28,"obj":"label","x":0,"y":210,"w%":100, "align":1,"text":"Ледяная морось: сильная ощущается -00.0°","text_font":"Montserrat-Medium.ttf-20","text_color":"#00ccff"}
+
+
+
+
+{"id":24,"obj":"label","parentid":2,"x":270,"y":11,"align":1,"text":"\ue82a","text_font":"myfont.ttf-25","text_color":"#00ccff"}
+{"id":25,"obj":"label","parentid":2,"x":305,"y":3,"align":1,"text":"---ммР","text_font":"Montserrat-Medium.ttf-30","text_color":"#ffffff"}
+{"id":3,"obj":"label","x":0,"y":150,"w":480,"h":80,"align":1,"text":"---","text_font":"Montserrat-Medium.ttf-30"}
+{"id":4,"obj":"flex","x":0,"y":235,"w":480,"h":40,"flex_flow":0,"flex_main_place":2,"flex_cross_place":2}
+{"id":40,"obj":"label","parentid":4,"w%":5,"align":1,"text":"","text_font":"myfont.ttf-25","text_color":"#00ccff"}
+// \ue040  \ue03f ---°C f011 \ue015 \uf734 f068 \ue59e e59b
+{"id":41,"obj":"label","parentid":4,"w%":21,"align":0,"text":"---°C","text_font":"Montserrat-Medium.ttf-30"}
+{"id":5,"obj":"label","y":20,"w%":100,"text":"--:--","text_font":"Montserrat-Medium.ttf-130","align":1}
+{"id":6,"obj":"led","x":145,"y":280,"w":187,"h":187,"color":"#00ccff"}
+{"id":7,"obj":"obj","x":149,"y":284,"w":180,"h":180,"radius":95,"bg_color":"#000000","border_color":"#444444","border_width":0}
+{"id":8,"obj":"label","x":150,"y":335,"w":187,"h":80,"align":1,"text":"---°","text_font":"Montserrat-Medium.ttf-60"}
+{"id":9,"obj":"led","x":30,"y":340,"w":80,"h":80,"color":"#636363"}
+{"id":10,"obj":"switch","x":30,"y":340,"w":80,"h":80,"radius":40,"border_side":0,"bg_color":"#000000","bg_color20":"#000000","bg_color11":"#00ccff","text_font":"myfont.ttf-40","text":"\uf011","text_color":"#ffffff","text_color01":"#00ccff"}
+{"id":11,"obj":"led","x":370,"y":340,"w":80,"h":80,"color":"#636363"}
+{"id":12,"obj":"switch","x":370,"y":340,"w":80,"h":80,"radius":40,"border_side":0,"bg_color":"#000000","bg_color20":"#000000","bg_color11":"#00ccff","text_font":"myfont.ttf-48","text":"\uf863","text_color":"#ffffff","text_color01":"#00ccff"}
+{"id":13,"obj":"arc","x":90,"y":120,"w":300,"h":300,"arc_color10":"#00ccff","bg_color20":"#00ccff","min":100,"max":300,"border_width20":2,"border_color20":"#000000","hidden":true}
+{"id":14,"obj":"label","x":95,"y":200,"w":300,"h":100,"align":1,"text":"24.9","text_font":"Montserrat-Medium.ttf-100","hidden":true}
+{"id":15,"obj":"led","x":30,"y":370,"w":80,"h":80,"color":"#00ccff","hidden":true}
+{"id":16,"obj":"btn","x":30,"y":370,"w":80,"h":80,"text_color":"#00ccff","radius":40,"text":"\uf068","text_font":"myfont.ttf-48","bg_color":"#000000","hidden":true}
+{"id":17,"obj":"led","x":370,"y":370,"w":80,"h":80,"color":"#ff0000","hidden":true}
+{"id":18,"obj":"btn","x":370,"y":370,"w":80,"h":80,"text_color":"#ff0000","radius":40,"text":"\ue59e","text_font":"myfont.ttf-48","bg_color":"#000000","hidden":true}
+{"id":19,"obj":"led","x":370,"y":50,"w":80,"h":80,"color":"#636363","hidden":true}
+{"id":26,"obj":"btn","x":370,"y":50,"w":80,"h":80,"text_color":"#ffffff","radius":40,"text":"\ue59b","text_font":"myfont.ttf-40","bg_color":"#000000","hidden":true}
+{"id":27,"obj":"label","x":18,"y":180,"align":1,"text":"На улице -00.0° ощущается как -11.5°C","text_font":"Montserrat-Medium.ttf-20","text_color":"#00ccff"}
+{"id":28,"obj":"flex","x":10,"y":235,"w":480,"h":80,"flex_flow":0,"flex_main_place":0,"flex_cross_place":0}
+{"id":29,"obj":"label","parentid":28,"w":25,"align":1,"text":"\uf00d","text_font":"weathericons.ttf-25","text_color":"#00ccff"}
+{"id":32,"obj":"label","parentid":28,"w":30,"align":0,"text":"-00.0°","text_font":"Montserrat-Medium.ttf-25"}
+{"id":33,"obj":"label","parentid":28,"w%":21,"align":0,"text":"-11.5°C","text_font":"Montserrat-Medium.ttf-10"}
+{"id":34,"obj":"label","x":18,"y":180,"w":100,"h":80,"align":1,"text":"Ледяная морось: сильная","text_font":"Montserrat-Medium.ttf-14","text_color":"#00ccff"}
+

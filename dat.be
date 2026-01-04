@@ -1,41 +1,59 @@
-def tele_sensor(BME280_data)
+def get_temp()
+    var result_str = tasmota.read_sensors()
+    var result_obj = json.load(result_str)
+    if result_obj != nil
+        var bme_data = result_obj["BME280"] 
+        if bme_data != nil
+            var temp = bme_data["Temperature"]
+            var hum = bme_data["Humidity"]
+            var dp = bme_data["DewPoint"]
+            var pre = bme_data["Pressure"]
+            p1b23.text = str(temp) + "°"
+            p1b3.text = str(math.round(hum)) + "%"
+            p1b7.text = str(pre) + "ммР"
+            p1b5.text = str(dp) + "°C"
+        end
+    end
+    set_weather()
+    thermo(persist.thermostat)
+end
+
+ def tele_sensor(BME280_data)
     var temp = BME280_data["Temperature"]
     var hum = math.round(BME280_data["Humidity"])
     var pre = BME280_data["Pressure"]
     var dew = BME280_data["DewPoint"]
     if persist.temp != temp
     persist.temp = temp
-    p1b8.text = str(temp) + "°"
+    p1b23.text = str(temp) + "°"
     end
     if persist.hum != hum
     persist.hum = hum
-    p1b21.text = str(hum) + "%"
+    p1b3.text = str(hum) + "%"
     end
     if persist.pre != pre
     persist.pre = pre
-    p1b25.text = str(pre) + "ммР"
+    p1b7.text = str(pre) + "ммР"
     end
     if persist.dew != dew
     persist.dew = dew
-    p1b23.text = str(dew) + "°C"
+    p1b5.text = str(dew) + "°C"
     end
 end
 
-
-tasmota.add_rule("Tele#BME280", tele_sensor, "tele_sensor")
-
 def tm(data)
     if data < 10
-        data = "0" + str(data)
+    data = "0" + str(data)
     else  data = str(data)
     end
     return data
 end
+
 def get_time(data)
     var hours   = data / 60
     var  minutes = data % 60
     var time = tm(hours) + ":"+ tm( minutes)
-    p1b5.text = time 
+    p1b8.text = time 
 end
 
 def  get_date()
@@ -48,151 +66,109 @@ def  get_date()
     var hour = str(tm( time_map["hour"]))
     var min =str(tm( time_map["min"]))
     var weekdays = ["ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"]
-    p1b5.text = hour + ":" + min
-    p1b3.text = weekdays[weekday] + " " + day + "." + month + "." + year
-     
+    p1b8.text = hour + ":" + min
+    p1b9.text = day + "." + month + "." + year + " " + weekdays[weekday] 
 end
    
 
+def  print_data(data)
+    print(data)
+end
 
-tasmota.add_rule("Time#Initialized", get_date, "get_date1")
+def get_weather()
+  var wc = webclient()
+  wc.begin("https://api.open-meteo.com/v1/forecast?latitude=57.257538&longitude=65.136679&daily=temperature_2m_max,weather_code,temperature_2m_min&current=temperature_2m,apparent_temperature,is_day,weather_code&timezone=Asia/Yekaterinburg&forecast_days=1")
+  var temp
+  if wc.GET() == 200
+    var body = wc.get_string()
+    var d = json.load(body)
+    if d != nil && d["current"] != nil
+    var t = (d["current"]["temperature_2m"])
+    var ta = (d["current"]["apparent_temperature"])
+    var dn = (d["current"]["is_day"])
+    var w1 = (d["current"]["weather_code"])
+    var tmin = (d["daily"]["temperature_2m_min"][0])
+    var tmax = (d["daily"]["temperature_2m_max"][0])
+    var w2 = (d["daily"]["weather_code"][0])
+    temp = [t, ta, dn, w1, tmin, tmax, w2]
+    end
+  end
+  wc.close()
+  return temp
+end
 
-tasmota.add_rule("Time#Minute=0", get_date, "get_date2")
+def set_weather()
+    var w = get_weather()
+    var w1
+    var w2
+    var weather_codes_map = {
+        0: ["Ясно / Солнечно", "\uf00d"],
+        1: ["В основном ясно", "\uf00c"],
+        2: ["Частичная облачность", "\uf002"],
+        3: ["Пасмурно", "\uf013"],
+        45: ["Туман", "\uf021"],
+        48: ["Отложение изморози", "\uf014"],
+        51: ["Морось: слабая", "\uf01a"],
+        53: ["Морось: умеренная", "\uf0b5"],
+        55: ["Морось: сильная", "\uf017"],
+        56: ["Ледяная морось: слабая", "\uf01a"],
+        57: ["Ледяная морось: сильная", "\uf0b5"],
+        61: ["Дождь: слабый", "\uf015"],
+        63: ["Дождь: умеренный", "\uf019"],
+        65: ["Дождь: сильный", "\uf019"],
+        66: ["Ледяной дождь: слабый", "\uf019"],
+        67: ["Ледяной дождь: сильный", "\uf019"],
+        71: ["Снег: слабый", "\uf01b"],
+        73: ["Снег: умеренный", "\uf01b"],
+        75: ["Снег: сильный", "\uf064"],
+        77: ["Мокрый снег", "\uf0b5"],
+        80: ["Ливень: слабый", "\uf018"],
+        81: ["Ливень: умеренный", "\uf018"],
+        82: ["Ливень: сильный", "\uf018"],
+        85: ["Снегопад: слабый", "\uf0b5"],
+        86: ["Снегопад: сильный", "\uf0b5"],
+        95: ["Гроза", "\uf01e"],
+        96: ["Гроза с градом: слабая", "\uf01d"],
+        99: ["Гроза с градом: сильная", "\uf01d"]
+        }
+    var weather_codes_map2 = {
+        0: ["Ясно / Солнечно", "\uf02e"],
+        1: ["В основном ясно", "\uf083"],
+        2: ["Частичная облачность", "\uf086"]
+        }
+    if w
+        if w[3] < 3 && !w[2]
+            w1 = weather_codes_map2[w[3]][1]
+        else w1 = weather_codes_map[w[3]][1]
+        end
+        if w[6] < 3 && !w[2]
+            w2 = weather_codes_map2[w[6]][1]
+        else w2 = weather_codes_map[w[6]][1]
+        end
+    p1b11.text = w1
+    p1b12.text = str(w[0])  + "°"
+    p1b13.text = w2
+    p1b14.text =  str(w[4]) + "°/" + str(w[5])  + "°"
+    p1b15.text =  weather_codes_map[w[3]][0] + ", ощущается как " + str(w[1])  + "°"
+    end
+end
 
-tasmota.add_rule("Time#Minute", get_time, "get_time")
-
-
-
-
-def get_btn_thermo(btn)
-    if btn 
+def thermo(data)
+    if data 
     tasmota.cmd("Backlog  SensorInputSet 1; THERMOSTATMODESET 1")
     tasmota.cmd("TempTargetSet " + str(persist.target_temp))
-    p1b3.h = 80
-    p1b9.color = "#00ccff"
-    p1b40.hidden = false
-    p1b41.hidden = false
-    p1b10.toggle = true
-    else  
-    tasmota.cmd("THERMOSTATMODESET 0")
-    p1b3.h = 100
-    p1b9.color = "#636363"
-    p1b40.hidden = true
-    p1b41.hidden = true
-     p1b10.toggle = false
+    else
+        tasmota.cmd("THERMOSTATMODESET 0")
     end
-    persist.thermostat = btn
-    persist.save()
-end
-tasmota.add_rule("hasp#p1b10#val", get_btn_thermo,  "get_btn_thermo")
-
-def get_temp()
-    p1b8.text = str(persist.temp) + "°"
-    p1b21.text = str(persist.hum) + "%"
-    p1b25.text = str(persist.pre) + "ммР"
-    p1b23.text = str(persist.dew) + "°C"
-    p1b41.text = str(persist.target_temp) + "°C"
-    get_btn_thermo(persist.thermostat)
 end
 
 
-def get_btn_fan(btn)
-tasmota.set_power(1, btn)
-end
-tasmota.add_rule("hasp#p1b12#val", get_btn_fan,  "get_btn")
 
-def power2_state(sts)
-if sts 
-    p1b12.toggle = true
-    p1b11.color = "#00ccff"
-    p1b40.text_color = "#ff0000"
-    p1b40.text = "\ue040"
-else  
-    p1b12.toggle = false
-    p1b11.color = "#636363"
-    p1b40.text_color = "#00ccff"
-    p1b40.text = "\ue03f"
-end
-end
-tasmota.add_rule("Power2#State", power2_state,  "power2_state")
+tasmota.add_rule("hasp", print_data, "print_data")
 
-
-
-def ark_state(sts)
-  persist.target_temp = sts/10.0
-  p1b14.text = str(persist.target_temp)
-end
-tasmota.add_rule("hasp#p1b13#val", ark_state,  "ark_state")
-
-
-def minus_state()
-  persist.target_temp -= 0.1
-  p1b14.text = str(persist.target_temp)
-end
-
-def plus_state()
-  persist.target_temp += 0.1
-  p1b14.text = str(persist.target_temp)
-end
-
-tasmota.add_rule("hasp#p1b16#event=up", minus_state,  "minus_state")
-tasmota.add_rule("hasp#p1b18#event=up", plus_state,  "plus_state")
-
+tasmota.add_rule("Time#Initialized", get_date, "get_date1")
+tasmota.add_rule("Time#Minute=0", get_date, "get_date2")
+tasmota.add_rule("Time#Minute", get_time, "get_time")
 tasmota.add_rule("System#Boot", get_temp, "get_temp")
-
-
-
-
-def open_state()
-    p1b13.hidden = false
-    p1b14.hidden = false
-    p1b15.hidden = false
-    p1b16.hidden = false
-    p1b17.hidden = false
-    p1b18.hidden = false
-    p1b19.hidden = false
-    p1b26.hidden = false
-    p1b13.val = persist.target_temp*10.0
-    p1b14.text = str(persist.target_temp)
-    p1b3.hidden = true
-    p1b4.hidden = true
-    p1b40.hidden = true
-    p1b41.hidden = true
-    p1b5.hidden = true
-    p1b6.hidden = true
-    p1b7.hidden = true
-    p1b8.hidden = true
-    p1b9.hidden = true
-    p1b10.hidden = true
-    p1b11.hidden = true
-    p1b12.hidden = true
-  end
-tasmota.add_rule("hasp#p1b7",open_state,  "open_state")
-
-
-def close_state()
-    p1b13.hidden = true
-    p1b14.hidden = true
-    p1b15.hidden = true
-    p1b16.hidden = true
-    p1b17.hidden = true
-    p1b18.hidden = true
-    p1b19.hidden = true
-    p1b26.hidden = true
-    p1b41.text = str(persist.target_temp)  + "°C"
-    tasmota.cmd("TempTargetSet " + str(persist.target_temp))
-    p1b3.hidden = false
-    p1b4.hidden = false
-    p1b40.hidden = false
-    p1b41.hidden = false
-    p1b5.hidden = false
-    p1b6.hidden = false
-    p1b7.hidden = false
-    p1b8.hidden = false
-    p1b9.hidden = false
-    p1b10.hidden = false
-    p1b11.hidden = false
-    p1b12.hidden = false
-  end
-
-tasmota.add_rule("hasp#p1b26#event=up", close_state,  "close_state")
+tasmota.add_rule("Tele#BME280", tele_sensor, "tele_sensor")
+tasmota.add_rule("Time#Minute|15", set_weather, "set_weather")
