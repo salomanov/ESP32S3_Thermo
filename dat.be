@@ -1,22 +1,4 @@
-def get_temp()
-    var result_str = tasmota.read_sensors()
-    var result_obj = json.load(result_str)
-    if result_obj != nil
-        var bme_data = result_obj["BME280"] 
-        if bme_data != nil
-            var temp = bme_data["Temperature"]
-            var hum = bme_data["Humidity"]
-            var dp = bme_data["DewPoint"]
-            var pre = bme_data["Pressure"]
-            p1b23.text = str(temp) + "°"
-            p1b3.text = str(math.round(hum)) + "%"
-            p1b7.text = str(pre) + "ммР"
-            p1b5.text = str(dp) + "°C"
-        end
-    end
-    set_weather()
-    thermo(persist.thermostat)
-end
+
 
  def tele_sensor(BME280_data)
     var temp = BME280_data["Temperature"]
@@ -162,6 +144,25 @@ def thermo(data)
     end
 end
 
+def get_temp()
+    var result_str = tasmota.read_sensors()
+    var result_obj = json.load(result_str)
+    if result_obj != nil
+        var bme_data = result_obj["BME280"] 
+        if bme_data != nil
+            var temp = bme_data["Temperature"]
+            var hum = bme_data["Humidity"]
+            var dp = bme_data["DewPoint"]
+            var pre = bme_data["Pressure"]
+            p1b23.text = str(temp) + "°"
+            p1b3.text = str(math.round(hum)) + "%"
+            p1b7.text = str(pre) + "ммР"
+            p1b5.text = str(dp) + "°C"
+        end
+    end
+    set_weather()
+    thermo(persist.thermostat)
+end
 
 
 tasmota.add_rule("hasp", print_data, "print_data")
