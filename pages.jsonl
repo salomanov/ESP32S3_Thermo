@@ -21,10 +21,14 @@
 {"id":16,"obj":"led","x":146,"y":270,"w":188,"h":188,"color":"#636363"}
 {"id":17,"obj":"led","x":30,"y":324,"w":80,"h":80,"color":"#636363"}
 {"id":18,"obj":"led","x":370,"y":324,"w":80,"h":80,"color":"#636363"}
-{"id":19,"obj":"obj","x":150,"y":274,"w":180,"h":180,"radius":95,"bg_color":"#000000","border_width":0}
+{"id":19,"obj":"switch","x":150,"y":274,"w":180,"h":180,"radius":95,"bg_color":"#000000","border_width":0,"border_side":0,"bg_color20":"#000000","bg_color11":"#00ccff","text_color01":"#00ccff","text":"","text_font":"Montserrat-Medium.ttf-60"}
 {"id":20,"obj":"switch","x":30,"y":324,"w":80,"h":80,"radius":40,"border_side":0,"bg_color":"#000000","bg_color20":"#000000","bg_color11":"#00ccff","text_font":"myfont.ttf-40","text":"\uf011","text_color01":"#00ccff"}
 {"id":21,"obj":"switch","x":370,"y":324,"w":80,"h":80,"radius":40,"border_side":0,"bg_color":"#000000","bg_color20":"#000000","bg_color11":"#00ccff","text_font":"myfont.ttf-48","text":"\uf863","text_color01":"#00ccff"}
 {"id":22,"obj":"label","x":220,"y":295,"w":40,"align":1,"text":"","text_font":"myfont.ttf-29","text_color":"#00ccff"}
-{"id":23,"obj":"label","x":150,"y":330,"w":187,"h":80,"align":1,"text":"","text_font":"Montserrat-Medium.ttf-60"}
 {"id":24,"obj":"label","x":200,"y":400,"w":90,"align":1,"text":""}
 {"id":25,"obj":"btn","parentid":1,"w":30,"h":30,"align":1,"text_color":"#00ccff","text":"\uf0c9","text_font":"myfont.ttf-35","bg_color":"#000000"}
+
+
+{"page":2,"comment":"---------- Page 1 Obj ----------"}
+{"id":0, "text_color":"#FFFFFF","bg_color":"#000000","text_font":"Montserrat-Medium.ttf-30"}
+{"id":8,"obj":"label","y":15,"w%":100,"text":"22:22","text_font":"Montserrat-Medium.ttf-130","align":1}

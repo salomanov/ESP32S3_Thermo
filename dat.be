@@ -7,7 +7,7 @@
     var dew = BME280_data["DewPoint"]
     if persist.temp != temp
     persist.temp = temp
-    p1b23.text = str(temp) + "°"
+    p1b19.text = str(temp) + "°"
     end
     if persist.hum != hum
     persist.hum = hum
@@ -154,7 +154,7 @@ def get_temp()
             var hum = bme_data["Humidity"]
             var dp = bme_data["DewPoint"]
             var pre = bme_data["Pressure"]
-            p1b23.text = str(temp) + "°"
+            p1b19.text = str(temp) + "°"
             p1b3.text = str(math.round(hum)) + "%"
             p1b7.text = str(pre) + "ммР"
             p1b5.text = str(dp) + "°C"
@@ -164,6 +164,8 @@ def get_temp()
     thermo(persist.thermostat)
 end
 
+tasmota.add_rule("hasp#p0b0#idle=off", / args -> p1.show())
+tasmota.add_rule("hasp#p0b0#idle=short", / args -> p2.show())
 
 tasmota.add_rule("hasp", print_data, "print_data")
 
