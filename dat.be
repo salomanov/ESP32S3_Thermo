@@ -1,3 +1,7 @@
+def publish_calibrate(temp)
+    tasmota.cmd("Publish tuya/calibrate/set " + str(temp))
+end
+
 def tele_sensor(BME280_data)
     var temp = BME280_data["Temperature"]
     var hum = math.round(BME280_data["Humidity"])
@@ -53,10 +57,6 @@ end
 
 def  print_data(data)
     print(data)
-end
-
-def publish_calibrate(temp)
-    tasmota.cmd("Publish tuya/calibrate/set " + str(temp))
 end
 
 def publish_calibrate_on_change(temp, trigger, msg)
