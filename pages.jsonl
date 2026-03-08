@@ -27,8 +27,3 @@
 {"id":22,"obj":"label","x":220,"y":295,"w":40,"align":1,"text":"","text_font":"myfont.ttf-29","text_color":"#00ccff"}
 {"id":24,"obj":"label","x":200,"y":400,"w":90,"align":1,"text":""}
 {"id":25,"obj":"btn","parentid":1,"w":30,"h":30,"align":1,"text_color":"#00ccff","text":"\uf0c9","text_font":"myfont.ttf-35","bg_color":"#000000"}
-
-
-{"page":2,"comment":"---------- Page 1 Obj ----------"}
-{"id":0, "text_color":"#FFFFFF","bg_color":"#000000","text_font":"Montserrat-Medium.ttf-30"}
-{"id":8,"obj":"label","y":15,"w%":100,"text":"22:22","text_font":"Montserrat-Medium.ttf-130","align":1}

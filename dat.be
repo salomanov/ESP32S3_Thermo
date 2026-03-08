@@ -1,5 +1,3 @@
-
-
  def tele_sensor(BME280_data)
     var temp = BME280_data["Temperature"]
     var hum = math.round(BME280_data["Humidity"])
@@ -121,18 +119,22 @@ def set_weather()
     if w
         if w[3] < 3 && !w[2]
             w1 = weather_codes_map2[w[3]][1]
-        else w1 = weather_codes_map[w[3]][1]
+        else 
+            w1 = weather_codes_map[w[3]][1]
         end
         if w[6] < 3 && !w[2]
             w2 = weather_codes_map2[w[6]][1]
-        else w2 = weather_codes_map[w[6]][1]
+        else 
+            w2 = weather_codes_map[w[6]][1]
         end
-    p1b11.text = w1
-    p1b12.text = str(w[0])  + "°"
-    p1b13.text = w2
-    p1b14.text =  str(w[4]) + "°/" + str(w[5])  + "°"
-    p1b15.text =  weather_codes_map[w[3]][0] + ", ощущается как " + str(w[1])  + "°"
-    end
+   
+        p1b11.text = w1
+        p1b12.text = str(w[0])  + "°"
+        p1b13.text = w2
+        p1b14.text =  str(w[4]) + "°/" + str(w[5])  + "°"
+        p1b15.text =  weather_codes_map[w[3]][0] + ", ощущается как " + str(w[1])  + "°"
+        tasmota.cmd("Backlog Publish tele/weather/temp " + str(w[0]) + "; Publish tele/weather/icon " + str(w[3]))
+     end
 end
 
 def thermo(data)
@@ -164,8 +166,10 @@ def get_temp()
     thermo(persist.thermostat)
 end
 
-tasmota.add_rule("hasp#p0b0#idle=off", / args -> p1.show())
-tasmota.add_rule("hasp#p0b0#idle=short", / args -> p2.show())
+
+
+#tasmota.add_rule("hasp#p0b0#idle=off", / args -> p1.show())
+#tasmota.add_rule("hasp#p0b0#idle=short", / args -> p2.show())
 
 tasmota.add_rule("hasp", print_data, "print_data")
 
