@@ -59,13 +59,6 @@ def  print_data(data)
     print(data)
 end
 
-def publish_calibrate_on_change(temp, trigger, msg)
-    if persist.calibrate_temp != temp
-        persist.calibrate_temp = temp
-        publish_calibrate(temp)
-    end
-end
-
 def render_weather()
     if persist.weather_now_icon != nil
         p1b11.text = persist.weather_now_icon
@@ -228,6 +221,5 @@ tasmota.add_rule("Time#Minute=0", get_date, "get_date2")
 tasmota.add_rule("Time#Minute", get_time, "get_time")
 tasmota.add_rule("System#Boot", get_temp, "get_temp")
 tasmota.add_rule("System#Boot", init_weather, "init_weather")
-tasmota.add_rule("BME280#Temperature", publish_calibrate_on_change, "publish_calibrate_on_change")
 tasmota.add_rule("Tele#BME280", tele_sensor, "tele_sensor")
 tasmota.add_rule("Time#Minute|15", set_weather, "set_weather")
