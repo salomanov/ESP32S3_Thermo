@@ -133,7 +133,7 @@ def set_weather()
         p1b13.text = w2
         p1b14.text =  str(w[4]) + "°/" + str(w[5])  + "°"
         p1b15.text =  weather_codes_map[w[3]][0] + ", ощущается как " + str(w[1])  + "°"
-        tasmota.cmd("Backlog Publish tele/weather/temp " + str(w[0]) + "; Publish tele/weather/icon " + str(w[3]))
+        tasmota.cmd("Backlog Publish tele/weather/temp " + str(w[0]) + "; Publish tele/weather/icon " + str(w[3]) + "; Publish tele/weather/day " + str(w[2]))
      end
 end
 
