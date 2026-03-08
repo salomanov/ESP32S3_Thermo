@@ -7,6 +7,7 @@ def tele_sensor(BME280_data)
     var hum = math.round(BME280_data["Humidity"])
     var pre = BME280_data["Pressure"]
     var dew = BME280_data["DewPoint"]
+    persist.latest_temp = temp
     publish_calibrate(temp)
     if persist.temp != temp
     persist.temp = temp
@@ -59,8 +60,9 @@ def  print_data(data)
     print(data)
 end
 
-def publish_calibrate_on_change(temp, trigger, msg)
-    if persist.calibrate_temp != temp
+def publish_calibrate_minute()
+    var temp = persist.latest_temp
+    if temp != nil && persist.calibrate_temp != temp
         persist.calibrate_temp = temp
         publish_calibrate(temp)
     end
@@ -226,8 +228,8 @@ tasmota.add_rule("hasp", print_data, "print_data")
 tasmota.add_rule("Time#Initialized", get_date, "get_date1")
 tasmota.add_rule("Time#Minute=0", get_date, "get_date2")
 tasmota.add_rule("Time#Minute", get_time, "get_time")
+tasmota.add_rule("Time#Minute", publish_calibrate_minute, "publish_calibrate_minute")
 tasmota.add_rule("System#Boot", get_temp, "get_temp")
 tasmota.add_rule("System#Boot", init_weather, "init_weather")
-tasmota.add_rule("BME280#Temperature", publish_calibrate_on_change, "publish_calibrate_on_change")
 tasmota.add_rule("Tele#BME280", tele_sensor, "tele_sensor")
 tasmota.add_rule("Time#Minute|15", set_weather, "set_weather")
